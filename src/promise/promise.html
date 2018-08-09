@@ -6,25 +6,39 @@
 </head>
 <body>
 <script src="./fakePromise.js"></script>
+<!--<script>-->
+  <!--var test = function (reslove,reject) {-->
+    <!--var timeOut = Math.random() * 2;-->
+    <!--setTimeout(function () {-->
+      <!--if(timeOut > 1) {-->
+        <!--console.log('call resolve');-->
+        <!--reslove('200 oK');-->
+      <!--}else {-->
+        <!--console.log('call reject');-->
+        <!--reject('timeout in '+ timeOut + ' seconds');-->
+      <!--}-->
+
+    <!--},timeOut * 1000)-->
+  <!--};-->
+  <!--new FakePromise(test).then(function (result) {-->
+    <!--console.log('成功' + result);-->
+  <!--}).catch(function (reson) {-->
+    <!--console.log('失败' + reson);-->
+  <!--})-->
+<!--</script>-->
+<script src="s.js"></script>
 <script>
-
-  var test = function (reslove,reject) {
-    var timeOut = Math.random() * 2;
-    setTimeout(function () {
-      if(timeOut > 1) {
-        console.log('call resolve');
-        reslove('200 oK');
-      }else {
-        console.log('call reject');
-        reject('timeout in '+ timeOut + ' seconds');
-      }
-
-    },timeOut * 1000)
-  };
-  new FakePromise(test).then(function (result) {
-    console.log('成功' + result);
-  }).catch(function (reson) {
-    console.log('失败' + reson);
+  var a = new MPromise(function (resolve) {
+    resolve(2)
+  }).then(function (value) {
+    value ++
+    return value
+//    return new MPromise(function (resolve) {
+//      value ++
+//      resolve(value)
+//    })
+  }).then(function (value) {
+    console.log(value);
   })
 </script>
 </body>

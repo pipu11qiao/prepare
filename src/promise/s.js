@@ -74,7 +74,7 @@
   }
 
   function executeCallbackAsync(callback, value) {
-    var _this = this;
+    var _this = this; // 新的promise
     setTimeout(function() {
       var res;
       try {
@@ -241,5 +241,6 @@
   } catch (e) {
     if (scope.Promise && !scope.MPromise) scope.MPromise = Promise;
   }
+
   return Promise;
 })(this)
