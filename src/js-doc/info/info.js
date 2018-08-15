@@ -10,9 +10,17 @@ function Book(title,author){
 }
 Book.prototype = {
   constructor: Book,
+  /**
+   * 获取书本标题
+   * @return {string|*}
+   */
   getTitle: function () {
     return this.title;
   },
+  /**
+   * 设置书本的页数
+   * @param pageNum {number} 页数
+   */
   setPageNum: function (pageNum) {
     this.pageNum = pageNum
   }
